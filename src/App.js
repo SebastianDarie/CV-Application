@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  ThemeProvider,
+  ColorModeProvider,
+  CSSReset,
+  theme,
+  Box,
+  Divider,
+} from '@chakra-ui/core'
+import GeneralForm from './components/GeneralForm'
+import EducationalForm from './components/EducationalForm'
+import PracticalExpForm from './components/PracticalExpForm'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <CSSReset />
+      <ColorModeProvider>
+        <Box
+          bg='gray.300'
+          color='red.500'
+          w='100%'
+          h='35px'
+          display='flex'
+          justifyContent='center'
+          alignItems='center'
+          fontSize={25}
+          mb={5}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          CV Project
+        </Box>
+        <GeneralForm />
+        <Divider w='50%' m='auto' borderColor='red.300' pt={5} />
+        <Box mb={5}></Box>
+        <EducationalForm />
+        <Divider w='50%' m='auto' borderColor='red.300' pt={5} />
+        <Box mb={5}></Box>
+        <PracticalExpForm />
+      </ColorModeProvider>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
